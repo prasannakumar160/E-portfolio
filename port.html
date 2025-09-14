@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MK Prasanna Kumar - Personal E-Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0B1120; /* Darker navy blue */
+            overflow-x: hidden;
+        }
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+        .gradient-text {
+            @apply bg-gradient-to-r from-cyan-400 to-teal-400 text-transparent bg-clip-text;
+        }
+        .section-title {
+            @apply text-4xl font-bold text-slate-100 mb-12 text-center gradient-text;
+        }
+        .glass-card {
+            @apply bg-slate-800/40 backdrop-blur-lg rounded-xl border border-slate-700/80 shadow-lg transition-all duration-300;
+        }
+        .nav-link {
+            @apply px-4 py-2 text-slate-300 hover:text-cyan-400 font-medium transition-colors duration-300;
+        }
+        .btn {
+            @apply px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105 shadow-lg;
+        }
+        .btn-primary {
+            @apply bg-gradient-to-r from-cyan-500 to-teal-500 text-white hover:shadow-cyan-500/40;
+        }
+        .skill-card {
+             @apply bg-slate-800/60 p-4 rounded-lg flex items-center gap-4 border border-slate-700 transition-all duration-300 hover:-translate-y-2 hover:border-cyan-400/50 hover:bg-slate-800;
+        }
+        /* For scroll animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1s cubic-bezier(0.645, 0.045, 0.355, 1), transform 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Revolving background animation */
+        .revolving-bg {
+            width: 100vmin;
+            height: 100vmin;
+            opacity: 0.07;
+            animation: spin 90s linear infinite;
+        }
+        @keyframes spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="text-slate-300">
+
+    <!-- Header & Navigation -->
+    <header class="bg-black/30 backdrop-blur-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold gradient-text">MKP.</a>
+            <div class="hidden md:flex space-x-2">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#portfolio" class="nav-link">Portfolio</a>
+                <a href="#achievements" class="nav-link">Achievements</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <a href="#contact" class="hidden md:block btn btn-primary">Get in Touch</a>
+            <button id="mobile-menu-btn" class="md:hidden text-slate-300 z-10">
+                <i class="fas fa-bars fa-lg"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-0 left-0 w-full h-screen bg-slate-900/95 backdrop-blur-xl flex flex-col items-center justify-center space-y-6">
+            <a href="#about" class="nav-link text-2xl">About</a>
+            <a href="#experience" class="nav-link text-2xl">Experience</a>
+            <a href="#skills" class="nav-link text-2xl">Skills</a>
+            <a href="#portfolio" class="nav-link text-2xl">Portfolio</a>
+            <a href="#achievements" class="nav-link text-2xl">Achievements</a>
+            <a href="#contact" class="nav-link text-2xl">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="relative min-h-screen flex items-center overflow-hidden">
+            <div class="absolute inset-0 z-5 flex items-center justify-center pointer-events-none">
+                <svg class="revolving-bg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" stroke="#FFFFFF">
+                    <g fill="none" stroke-width="1">
+                        <!-- Main square -->
+                        <rect x="50" y="50" width="100" height="100" />
+                        <rect x="60" y="60" width="80" height="80" />
+
+                        <!-- Pins -->
+                        <path d="M 50 65 L 40 65" />
+                        <rect x="35" y="62.5" width="5" height="5" />
+                        <path d="M 50 75 L 40 75" />
+                        <rect x="35" y="72.5" width="5" height="5" />
+                        <path d="M 50 85 L 40 85" />
+                        <rect x="35" y="82.5" width="5" height="5" />
+                        <path d="M 50 95 L 40 95" />
+                        <rect x="35" y="92.5" width="5" height="5" />
+                        <path d="M 50 105 L 40 105" />
+                        <rect x="35" y="102.5" width="5" height="5" />
+                        <path d="M 50 115 L 40 115" />
+                        <rect x="35" y="112.5" width="5" height="5" />
+                        <path d="M 50 125 L 40 125" />
+                        <rect x="35" y="122.5" width="5" height="5" />
+                        <path d="M 50 135 L 40 135" />
+                        <rect x="35" y="132.5" width="5" height="5" />
+
+                        <path d="M 150 65 L 160 65" />
+                        <rect x="160" y="62.5" width="5" height="5" />
+                        <path d="M 150 75 L 160 75" />
+                        <rect x="160" y="72.5" width="5" height="5" />
+                        <path d="M 150 85 L 160 85" />
+                        <rect x="160" y="82.5" width="5" height="5" />
+                        <path d="M 150 95 L 160 95" />
+                        <rect x="160" y="92.5" width="5" height="5" />
+                        <path d="M 150 105 L 160 105" />
+                        <rect x="160" y="102.5" width="5" height="5" />
+                        <path d="M 150 115 L 160 115" />
+                        <rect x="160" y="112.5" width="5" height="5" />
+                        <path d="M 150 125 L 160 125" />
+                        <rect x="160" y="122.5" width="5" height="5" />
+                        <path d="M 150 135 L 160 135" />
+                        <rect x="160" y="132.5" width="5" height="5" />
+                        
+                        <path d="M 65 50 L 65 40" />
+                        <rect x="62.5" y="35" width="5" height="5" />
+                        <path d="M 75 50 L 75 40" />
+                        <rect x="72.5" y="35" width="5" height="5" />
+                        <path d="M 85 50 L 85 40" />
+                        <rect x="82.5" y="35" width="5" height="5" />
+                        <path d="M 95 50 L 95 40" />
+                        <rect x="92.5" y="35" width="5" height="5" />
+                        <path d="M 105 50 L 105 40" />
+                        <rect x="102.5" y="35" width="5" height="5" />
+                        <path d="M 115 50 L 115 40" />
+                        <rect x="112.5" y="35" width="5" height="5" />
+                        <path d="M 125 50 L 125 40" />
+                        <rect x="122.5" y="35" width="5" height="5" />
+                        <path d="M 135 50 L 135 40" />
+                        <rect x="132.5" y="35" width="5" height="5" />
+
+                        <path d="M 65 150 L 65 160" />
+                        <rect x="62.5" y="160" width="5" height="5" />
+                        <path d="M 75 150 L 75 160" />
+                        <rect x="72.5" y="160" width="5" height="5" />
+                        <path d="M 85 150 L 85 160" />
+                        <rect x="82.5" y="160" width="5" height="5" />
+                        <path d="M 95 150 L 95 160" />
+                        <rect x="92.5" y="160" width="5" height="5" />
+                        <path d="M 105 150 L 105 160" />
+                        <rect x="102.5" y="160" width="5" height="5" />
+                        <path d="M 115 150 L 115 160" />
+                        <rect x="112.5" y="160" width="5" height="5" />
+                        <path d="M 125 150 L 125 160" />
+                        <rect x="122.5" y="160" width="5" height="5" />
+                        <path d="M 135 150 L 135 160" />
+                        <rect x="132.5" y="160" width="5" height="5" />
+
+                        <!-- Connections -->
+                        <path d="M 35 105 L 25 105 L 25 180 L 100 180" />
+                        <path d="M 165 105 L 175 105 L 175 180 L 120 180" />
+                        <path d="M 105 35 L 105 25 L 180 25 L 180 100" />
+                        <path d="M 105 165 L 105 175 L 180 175 L 180 120" />
+                        <path d="M 35 85 L 20 85 L 20 20 L 85 20 L 85 35" />
+                        <rect x="92" y="18" width="5" height="5"/>
+                        <rect x="100" y="18" width="8" height="3"/>
+                    </g>
+                </svg>
+            </div>
+            <div id="particles-js"></div>
+            <div class="container mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-4 items-center">
+                <!-- Image Column: Appears first on mobile, but moved to the right on desktop with md:order-last -->
+                <div class="md:order-last flex justify-center">
+                    <!--
+                        PHOTO NOT LOADING IN VS CODE? HERE'S THE FIX:
+                        1. Download the photo from your Google Drive link.
+                        2. Save it in the EXACT same folder as this index.html file.
+                        3. Make sure the file is named exactly "Prasanna.jpg".
+                        This will ensure the image loads correctly when you're working locally.
+                    -->
+                    <img src="Prasanna.jpg" alt="MK Prasanna Kumar" class="w-80 h-80 rounded-full shadow-2xl shadow-cyan-500/20 border-4 border-white object-cover">
+                </div>
+                
+                <!-- Text Column: Appears second on mobile, but moved to the left on desktop -->
+                <div class="text-center md:text-left">
+                    <p class="text-xl md:text-2xl text-cyan-400 font-medium">Hello, I'm</p>
+                    <h1 class="text-5xl md:text-7xl font-extrabold text-slate-100 leading-tight mt-2">MK Prasanna Kumar</h1>
+                    <p class="mt-4 text-xl md:text-2xl text-slate-300">VLSI and IoT Enthusiast</p>
+                    <p class="mt-6 max-w-xl mx-auto md:mx-0 text-lg text-slate-400">
+                        I design and build the hardware and software for our connected world, from tiny integrated circuits to large-scale IoT systems.
+                    </p>
+                    <div class="mt-10 flex gap-4 justify-center md:justify-start">
+                        <a href="#portfolio" class="btn btn-primary">View My Work</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About / Personal Statement -->
+        <section id="about" class="py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title reveal">About Me</h2>
+                <div class="glass-card p-8 md:p-12 reveal">
+                    <div class="flex flex-col md:flex-row items-center gap-12">
+                        <div class="md:w-2/3">
+                            <h3 class="text-3xl font-semibold text-slate-100 mb-4">A Hardware Enthusiast on a Mission</h3>
+                            <p class="mb-4 text-slate-400">
+                                My journey started with a fascination for how tiny silicon chips power our world, and it has evolved into a drive to design and build efficient hardware and smart, connected systems. My mission is to contribute to the hardware revolution by creating low-power, high-performance integrated circuits and developing practical IoT solutions for real-world challenges.
+                            </p>
+                             <p class="text-slate-400">
+                                When I'm not designing circuits, I'm tinkering with microcontrollers, building home automation projects, or staying up-to-date with the latest trends in semiconductor technology.
+                            </p>
+                        </div>
+                        <div class="md:w-1/3 text-center">
+                            <div class="bg-slate-900/50 p-6 rounded-xl border border-slate-700">
+                                <h4 class="font-semibold text-lg mb-4 text-slate-100">Personal Details</h4>
+                                <ul class="text-left space-y-3 text-slate-400">
+                                    <li><i class="fas fa-map-marker-alt mr-3 text-cyan-400"></i>Hyderabad</li>
+                                    <li><i class="fas fa-envelope mr-3 text-cyan-400"></i>prasannakumarmk.6@gmail.com</li>
+                                    <li><i class="fas fa-globe mr-3 text-cyan-400"></i>English, Hindi, Telugu, Tamil, French</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education & Experience -->
+        <section id="experience" class="py-24 bg-slate-900/70">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title reveal">Journey & Projects</h2>
+                 <div class="grid md:grid-cols-2 gap-12">
+                    <!-- Education -->
+                    <div class="reveal">
+                        <h3 class="text-2xl font-bold text-center mb-8 text-slate-100">Education</h3>
+                        <div class="relative border-l-2 border-slate-700 pl-10 space-y-10">
+                            <div>
+                                <div class="absolute -left-3.5 mt-1.5 h-6 w-6 rounded-full bg-cyan-500 border-4 border-slate-900"></div>
+                                <p class="text-sm font-medium text-cyan-400">2023 - Present</p>
+                                <h4 class="text-xl font-semibold text-slate-100">B.Tech in ECE</h4>
+                                <p class="text-slate-400">IIIT Sri City</p>
+                            </div>
+                            <div>
+                                <div class="absolute -left-3.5 mt-1.5 h-6 w-6 rounded-full bg-cyan-500 border-4 border-slate-900"></div>
+                                <p class="text-sm font-medium text-cyan-400">2021 - 2023</p>
+                                <h4 class="text-xl font-semibold text-slate-100">Intermediate</h4>
+                                <p class="text-slate-400">Excellencia Junior College</p>
+                            </div>
+                            <div>
+                                <div class="absolute -left-3.5 mt-1.5 h-6 w-6 rounded-full bg-cyan-500 border-4 border-slate-900"></div>
+                                <p class="text-sm font-medium text-cyan-400">Graduated 2021</p>
+                                <h4 class="text-xl font-semibold text-slate-100">High School</h4>
+                                <p class="text-slate-400">Vikas The Concept School</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Experience -->
+                    <div class="reveal" data-delay="200">
+                         <h3 class="text-2xl font-bold text-center mb-8 text-slate-100">Experience</h3>
+                         <div class="space-y-6">
+                            <div class="glass-card p-6">
+                                <p class="text-cyan-400 font-medium">Summer 2024</p>
+                                <h4 class="text-xl font-bold text-slate-100">Summer Research Intern</h4>
+                                <p class="text-slate-400 font-medium mb-2">IIIT Sri City</p>
+                                <p class="text-slate-500 text-sm">Contributed to the first phase of a semi-autonomous E-cycle project, focusing on sensor integration and control algorithms under Prof. Hrishikesh.</p>
+                            </div>
+                            <div class="glass-card p-6">
+                                <p class="text-cyan-400 font-medium">Club Leadership</p>
+                                <h4 class="text-xl font-bold text-slate-100">Co-Lead, ConnexIon IoT Club</h4>
+                                <p class="text-slate-400 font-medium mb-2">IIIT Sri City</p>
+                                <p class="text-slate-500 text-sm">Organized major campus events like 'Agentica' and 'Electroforge' and fostered a community of student innovators.</p>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Skills -->
+        <section id="skills" class="py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title reveal">Technical Toolbox</h2>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <div class="skill-card reveal"><div class="text-2xl text-cyan-400"><i class="fas fa-microchip"></i></div> <span class="font-semibold text-slate-300">Verilog/VHDL</span></div>
+                    <div class="skill-card reveal" data-delay="100"><div class="text-2xl text-cyan-400"><i class="fas fa-robot"></i></div> <span class="font-semibold text-slate-300">Embedded C/C++</span></div>
+                    <div class="skill-card reveal" data-delay="200"><div class="text-2xl text-cyan-400"><i class="fab fa-raspberry-pi"></i></div> <span class="font-semibold text-slate-300">Microcontrollers</span></div>
+                    <div class="skill-card reveal" data-delay="300"><div class="text-2xl text-cyan-400"><i class="fas fa-wifi"></i></div> <span class="font-semibold text-slate-300">IoT Protocols (MQTT)</span></div>
+                    <div class="skill-card reveal" data-delay="400"><div class="text-2xl text-cyan-400"><i class="fab fa-python"></i></div> <span class="font-semibold text-slate-300">Python</span></div>
+                    <div class="skill-card reveal" data-delay="500"><div class="text-2xl text-cyan-400"><i class="fab fa-git-alt"></i></div> <span class="font-semibold text-slate-300">Git & GitHub</span></div>
+                    <div class="skill-card reveal" data-delay="600"><div class="text-2xl text-cyan-400"><i class="fas fa-sitemap"></i></div> <span class="font-semibold text-slate-300">PCB Design</span></div>
+                    <div class="skill-card reveal" data-delay="700"><div class="text-2xl text-cyan-400"><i class="fas fa-tools"></i></div> <span class="font-semibold text-slate-300">Lab Equipment</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio / Samples of Work -->
+        <section id="portfolio" class="py-24 bg-slate-900/70">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title reveal">Featured Projects</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="glass-card reveal overflow-hidden group">
+                        <img src="https://placehold.co/600x400/0B1120/f59e0b?text=Dispenser" alt="Project" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2 text-slate-100">Smart Medicine Dispenser</h3>
+                            <p class="text-sm mb-4 text-slate-400">A 3D-printed IoT device with a web app for doctors to monitor patient medication adherence.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-sky-400/10 text-sky-300 text-xs font-medium px-2.5 py-0.5 rounded-full">IoT</span>
+                                <span class="bg-red-400/10 text-red-300 text-xs font-medium px-2.5 py-0.5 rounded-full">3D Printing</span>
+                                <span class="bg-yellow-400/10 text-yellow-300 text-xs font-medium px-2.5 py-0.5 rounded-full">Firebase</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glass-card reveal overflow-hidden group" data-delay="200">
+                        <img src="https://placehold.co/600x400/0B1120/10b981?text=Purifier" alt="Project" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2 text-slate-100">Smart Air Purifier</h3>
+                            <p class="text-sm mb-4 text-slate-400">An intelligent air purifier that auto-adjusts filtration levels based on real-time sensor data.</p>
+                             <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-sky-400/10 text-sky-300 text-xs font-medium px-2.5 py-0.5 rounded-full">IoT</span>
+                                <span class="bg-teal-400/10 text-teal-300 text-xs font-medium px-2.5 py-0.5 rounded-full">Sensors</span>
+                                <span class="bg-slate-400/10 text-slate-300 text-xs font-medium px-2.5 py-0.5 rounded-full">Embedded</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glass-card reveal overflow-hidden group" data-delay="400">
+                         <img src="https://placehold.co/600x400/0B1120/8b5cf6?text=FPGA" alt="Project" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2 text-slate-100">FPGA Signal Processor</h3>
+                            <p class="text-sm mb-4 text-slate-400">Designed and implemented a real-time FIR filter on an FPGA using VHDL for audio processing.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-purple-400/10 text-purple-300 text-xs font-medium px-2.5 py-0.5 rounded-full">FPGA</span>
+                                <span class="bg-indigo-400/10 text-indigo-300 text-xs font-medium px-2.5 py-0.5 rounded-full">VHDL</span>
+                                <span class="bg-slate-400/10 text-slate-300 text-xs font-medium px-2.5 py-0.5 rounded-full">DSP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section id="achievements" class="py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title reveal">Achievements & Awards</h2>
+                <div class="max-w-3xl mx-auto">
+                    <div class="glass-card reveal p-8 flex items-center gap-6">
+                        <div class="text-5xl text-yellow-400"><i class="fas fa-trophy"></i></div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-slate-100">National Olympiad Winner</h3>
+                            <p class="text-slate-400 mt-1">Awarded first place in the National Olympiad in Computer Technology, recognizing exceptional problem-solving and technical skills.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Resume Download Section -->
+        <section id="resume" class="py-24 bg-slate-900/70">
+             <div class="container mx-auto px-6 text-center reveal">
+                 <h2 class="text-3xl font-bold text-slate-100 mb-4">Want to see more?</h2>
+                <p class="max-w-2xl mx-auto mb-8 text-slate-400">Download my full resume to get a more detailed look at my skills, experience, and academic achievements. References are available upon request.</p>
+                <a href="https://drive.google.com/file/d/1ALxTi6FHxT6Y24e9vg-DyG2Mn8QO5Ao-/view?usp=sharing" class="btn btn-primary text-lg" target="_blank">
+                    <i class="fas fa-download mr-2"></i> Download My Resume
+                </a>
+             </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24">
+            <div class="container mx-auto px-6 reveal">
+                <h2 class="section-title">Let's Connect</h2>
+                <div class="max-w-2xl mx-auto text-center">
+                    <p class="mb-8 text-slate-400">
+                        I'm currently seeking new opportunities and am always open to interesting collaborations. Whether you have a question, a project proposal, or just want to chat about tech, feel free to reach out!
+                    </p>
+                    <a href="mailto:prasannakumarmk.6@gmail.com" class="text-2xl font-semibold gradient-text hover:brightness-125 transition-all">
+                        prasannakumarmk.6@gmail.com
+                    </a>
+                    <div class="flex justify-center space-x-6 mt-8">
+                        <a href="#" class="text-slate-400 hover:text-cyan-400 transition-colors text-3xl"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/mk-prasanna-kumar-2601ab323/" target="_blank" class="text-slate-400 hover:text-cyan-400 transition-colors text-3xl"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black/50 py-6">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-sm text-slate-400">&copy; 2025 MK Prasanna Kumar. Designed & Built with Passion.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Particle.js config
+        particlesJS('particles-js', {
+            "particles": {
+                "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#06b6d4" },
+                "shape": { "type": "circle", "stroke": { "width": 0, "color": "#000000" } },
+                "opacity": { "value": 0.3, "random": true, "anim": { "enable": false } },
+                "size": { "value": 3, "random": true, "anim": { "enable": false } },
+                "line_linked": { "enable": true, "distance": 150, "color": "#0e7490", "opacity": 0.2, "width": 1 },
+                "move": { "enable": true, "speed": 1, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": false }, "resize": true },
+                "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 0.5 } } }
+            },
+            "retina_detect": true
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuIcon = mobileMenuBtn.querySelector('i');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.toggle('hidden');
+            if (isHidden) {
+                mobileMenuIcon.classList.remove('fa-times');
+                mobileMenuIcon.classList.add('fa-bars');
+            } else {
+                mobileMenuIcon.classList.remove('fa-bars');
+                mobileMenuIcon.classList.add('fa-times');
+            }
+        });
+
+        const mobileNavLinks = document.querySelectorAll('#mobile-menu a');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenuIcon.classList.remove('fa-times');
+                mobileMenuIcon.classList.add('fa-bars');
+            });
+        });
+
+        // Scroll-triggered animations
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const delay = parseInt(entry.target.dataset.delay) || 0;
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, delay);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(el => {
+            revealObserver.observe(el);
+        });
+    </script>
+
+</body>
+</html>
+
